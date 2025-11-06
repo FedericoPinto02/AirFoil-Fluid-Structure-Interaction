@@ -12,10 +12,10 @@ import sys
 step_filename = "cadFiles/NASAsc2-0410.STEP"
 # -----------------------------------
 
-lc_mesh = 0.3      # Dimensione della mesh (più piccolo = più fine = più lento)
+lc_mesh = 20.0     # Dimensione della mesh (più piccolo = più fine = più lento)
                     # NOTA: 0.01 potrebbe essere TROPPO fine per questo modello
-output_msh = "solid_mesh_from_step.msh"
-output_xdmf = "solid_mesh_from_step.xdmf"
+output_msh = f"solid_mesh_{str(lc_mesh).replace('.', '_')}.msh"
+output_xdmf = f"solid_mesh_{str(lc_mesh).replace('.', '_')}.xdmf"
 
 # --- 2. Creazione della Mesh 3D SOLIDA da file .STEP ---
 
@@ -24,7 +24,7 @@ gmsh.model.add("solid_from_step")
 
 # Prova a importare il file STEP
 try:
-    gmsh.model.occ.importShapes(step_filename)
+    gmsh.model.occ.importShapes(step_filename)``
 except Exception as e:
     print(f"Errore durante l'importazione del file STEP: {e}")
     print(f"Assicurati che il file '{step_filename}' sia nella stessa cartella.")
