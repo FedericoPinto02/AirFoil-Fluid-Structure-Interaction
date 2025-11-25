@@ -22,15 +22,15 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         50;
+endTime         115;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   50;
+writeInterval   115;
 
-purgeWrite      0;
+purgeWrite      2;
 
 writeFormat     ascii;
 
@@ -75,6 +75,16 @@ functions
         nLayers         2;
         executeControl  writeTime;
         writeControl    writeTime;
+    }
+    
+    yPlus
+    {
+    	type            yPlus;
+    	libs            (fieldFunctionObjects);
+	patchGroups	(NASAsc2-0410Group);
+
+        writeControl    writeTime;
+    	executeControl  writeTime;
     }
 }
 
