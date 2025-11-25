@@ -23,7 +23,7 @@ NASAsc2-0410.stl
     // than includedAngle as features
     // - 0  : selects no edges
     // - 180: selects all edges
-    includedAngle       150;
+    includedAngle       180;
 
     subsetFeatures
     {
